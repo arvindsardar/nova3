@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client Proof | Version 1</title>
+    <style>
+        :root {
+            --guides: rgba(252, 85, 238, 0.5);  /* colour1 */
+        }
+    	body{
+            margin:0;
+            background:black;
+            background-image: url(img.jpg);
+            background-position: center top;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .mockup{
+            visibility: hidden;;
+        }
+        #grid-overlay{
+            transition: all 0.5s ease;
+            border-left: 3px solid transparent;
+            border-right: 3px solid  transparent;
+            left:0;
+            right:0;
+            margin-left:auto;
+            margin-right:auto;
+            width: 100%;
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            box-sizing: border-box;
+            height: 100vh;
+        }
+        #grid-overlay.on{
+            border-left: 3px solid var(--guides);
+            border-right: 3px solid  var(--guides);
+            width: 1200px;
+        }
+        #grid-overlay .column{
+            transition: all 0.5s ease;
+            width: 7%;
+            border-left: 1px solid transparent;
+            border-right: 1px solid  transparent;
+        }
+        #grid-overlay.on .column{
+            border-left: 1px solid var(--guides);
+            border-right: 1px solid var(--guides);
+        }
+        button{
+            position: fixed;
+            z-index: 20;
+            padding: 5px 10px;
+        }
+    </style>
+    <script>
+         function myFunction() {
+            var element = document.getElementById("grid-overlay");
+                element.classList.toggle("on");
+            }
+    </script>
+</head>
+<body>
+    <div><button onclick="myFunction()">Toggle Grid</button></div>
+    <img class="mockup" src="img.jpg">
+    <div id="grid-overlay">
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+    </div>
+</body>
+</html>

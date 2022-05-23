@@ -1,0 +1,421 @@
+/*
+== STYLESHEET FOR THE GUTENBERG BLOCK EDITOR ==
+*/
+
+/* @GROUP vars */
+	:root {
+		--brand1: #F69448;	/* colour1 */
+		--brand2: #256899;	/* colour2 */
+		--brand3: #D81A55;	/* colour3 */
+		--brand4: #50C0B0;	/* colour4 */
+
+		--gray5:  #fafafa;
+		--gray10: #e6e1e2;
+		--gray20: #cac5c6;
+		--gray30: #afaaab;
+		--gray40: #948f91;
+		--gray50: #7a7677;
+		--gray60: #5e5e5e;
+		--gray70: #474747;
+		--gray80: #303030;
+		--gray90: #1b1b1b;
+
+		--light: var(--gray10);
+		--mid: var(--gray50);
+		--dark: var(--gray80);
+
+		--stripey: repeating-linear-gradient( 45deg, #f9f9fb, #f9f9fb 10px, #f0f0f0 10px, #f0f0f0 20px );
+		--checkerboard: repeating-conic-gradient(#f0f0f0 0% 25%, transparent 0% 50%) 50% / 20px 20px;
+		--outline: 1px dotted var(--gray20);
+	}
+
+/* @GROUP ADMIN BUTTON */
+	a.admin-button {
+		text-transform: uppercase;
+		font: bold 9px arial, helvetica, sans-serif;
+		color: #fff;
+		padding: 4px 12px;
+		border: 1px solid #bbb;
+		background-color: #269CE9;
+		background-image: linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+		border-color: #269CE9;
+		background-clip: padding-box;
+		border-radius: 3px;
+		box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+		text-shadow: 0 1px 0 rgba(0,0,0,.2);
+		text-decoration: none;
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+	}
+
+
+/* @GROUP Widths */
+	.wp-block {
+		max-width: 85%;
+	}
+	.wp-block[data-align="wide"] {
+		max-width: 90%;
+	}
+	.wp-block[data-align="full"] {
+		max-width: 98%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+/* @GROUP Font Appearance */
+	.edit-post-visual-editor.editor-styles-wrapper {
+		font-family: sans-serif;
+	}
+	.edit-post-visual-editor.editor-styles-wrapper p,
+	p.wp-block-paragraph,
+	body#tinymce.wp-editor,
+	p.block-editor-rich-text__editable {
+		font-family: sans-serif;
+		font-size: 14px;
+		line-height: 1.4;
+	}
+	.block-editor-block-list__layout > p.rich-text{
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+
+
+/* @GROUP INDICATOR: Reusable Block */
+	.is-reusable{
+		position: relative;
+		border: dotted blue 1px;
+	}
+	.is-reusable:before{
+		position: absolute;
+		top: -4px;
+		right: -4px;
+		content: 'Reusable Block';
+		text-transform: uppercase;
+		font: bold 9px arial, helvetica, sans-serif;
+		color: #fff;
+		padding: 4px 12px;
+		border: 1px solid #bbb;
+		background-color: #269CE9;
+		background-image: linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
+		border-color: #269CE9;
+		background-clip: padding-box;
+		border-radius: 3px;
+		box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
+		text-shadow: 0 1px 0 rgba(0,0,0,.2);
+		text-decoration: none;
+		z-index: 1;
+	}
+
+/* @GROUP VISIBILITY: Core Columns Block */
+	.block-editor-block-list__block.wp-block-column.wp-block-column {
+		border: var(--outline);
+		padding-left: 10px;
+		padding-top: 10px;
+	}
+
+/* @GROUP APPEARANCE: Core HTML Block */
+	.wp-block-html textarea{
+		background-color: #222;
+		color: white !important;
+	}
+
+/* @GROUP VISIBILITY: Core New Block Appender */
+	.block-list-appender.wp-block {
+		outline: var(--outline);
+		background: var(--gray10);
+	}
+
+/* @GROUP VISIBILITY: Paragraph Blocks */
+	.block-editor-block-list__layout > p.wp-block-paragraph::before,
+	p[aria-label="Empty block; start writing or type forward slash to choose a block"]:before{
+		content: '';
+		position: absolute !important;
+		top:0 !important;
+		right:0 !important;
+		bottom:0 !important;
+		left:0 !important;
+		border: var(--outline) !important;
+		pointer-events: none;
+	}
+
+
+/* @GROUP VISIBILITY: Block Containers */
+	/* padding */
+	.wp-block-group__inner-container,
+	.wp-block-wp-bootstrap-blocks-container{
+		padding: 3px;
+	}
+
+	/* outline */
+	.ghostkit-grid:before,
+	.wp-block-wp-bootstrap-blocks-container:before,
+	.wp-block-wp-bootstrap-blocks-row:before,
+	.block-library-spacer__resize-container:before,
+	.wp-block-group__inner-container:before{
+		content: '';
+		position: absolute;
+		border: var(--outline);
+		top:0px;
+		left:0px;
+		right:0px;
+		bottom:0px;
+	}
+	.wp-block-group__inner-container:before{
+		border-color: var(--gray20);
+		border-style: dashed;
+	}
+	.ghostkit-grid::before {
+		top: -15px;
+		bottom: -15px;
+		left: -15px;
+		right: -15px;
+	}
+
+	/* labels */
+	.ghostkit-grid:after,
+	.wp-block-wp-bootstrap-blocks-container:after,
+	.block-library-spacer__resize-container:after,
+	.wp-block-wp-bootstrap-blocks-row:after,
+	.wp-block-group__inner-container:after{
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-color: #cbc7bf;
+		color: #fef8ee;
+		font-size: 10px;
+		padding: 3px;
+	}
+	.wp-block-wp-bootstrap-blocks-container:after{
+		content: 'Bootstrap Container';
+	}
+	.block-library-spacer__resize-container:after{
+		content: 'Spacer';
+	}
+	.wp-block-wp-bootstrap-blocks-row:after{
+		content: 'Bootstrap Row';
+	}
+	.wp-block-group__inner-container:after{
+		content: 'Group';
+	}
+	.wp-block-group__inner-container .wp-block-group__inner-container:after{
+		content: 'Inner Group';
+	}
+	.ghostkit-grid:after{
+		content: 'Grid';
+		top: -15px;
+		right: -15px;
+	}
+	.block-library-spacer__resize-container {
+		background: var(--checkerboard);
+	}
+
+
+/* @GROUP Plugin: Ghostkit */
+	.ghostkit-toolbar-templates {
+		/* hide Templates Menu */
+		display: none;
+	}
+	.ghostkit-col {
+		border: 1px dotted gray;
+		padding: 4px;
+	}
+
+
+/* @GROUP Plugin Lazy Blocks */
+/* outline the lazyblock */
+	.lazyblock {
+		background-color: #f4f4f4 !important;
+		border: solid 6px #cde2ec;
+	}
+
+/* lazyblocks custom block "cards" */
+	.wp-block-lazyblock-nova-cards .lzb-gutenberg-repeater-items {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+		grid-gap: 15px;
+	}
+	.lzb-gutenberg-repeater-item {
+		padding: 0 20px 10px;
+		border: solid 2px #ddd !important;
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+		border-radius: 6px;
+	}
+
+	/* comment all below */
+	.lazyblock .lzb-content-title{
+		font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+		margin-bottom: 15px;
+		padding-bottom: 3px;
+	}
+	.lazyblock .lzb-preview-server {
+		color: #595959;
+		cursor: pointer;
+		font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+		font-size: 11px;
+		line-height: 1.4em;
+		text-transform: capitalize;
+		margin-top: 0;
+	}
+	.lazyblock .lzb-gutenberg-repeater-item-content .components-base-control{
+		padding-right: 20px;
+	}
+	.lzb-gutenberg-gallery .lzb-gutenberg-image-item, .lzb-gutenberg-image .lzb-gutenberg-image-item {
+		width: 100%;
+	}
+	.lzb-gutenberg-gallery .lzb-gutenberg-image-item img,
+	.lzb-gutenberg-image .lzb-gutenberg-image-item img {
+		width: auto !important;
+	}
+	.wp-block[data-title*="Module"] .lzb-content-title{
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+	.wp-block[data-title*="Module"] .lzb-content-title span,
+	.wp-block[data-title*="Module"] .lzb-content-title h6{
+		display: none;
+	}
+	.lazyblock .tcc-block-ui{
+		text-align: center;
+		display: grid;
+		place-content: center;
+		padding: 10px;
+		margin:0 -20px -11px -20px;
+		background: var(--stripey);
+	}
+	.lazyblock .tcc-block-ui .label {
+		text-transform: uppercase;
+		font-size: 20px;
+		font-weight: 500;
+		color: #9ec5d8;
+		padding: 20px 0;
+		text-shadow: 1px 0 0 rgba(255,255,255,0.8);
+	}
+	.lazyblock .tcc-block-ui .label:after{
+		content: "SMART MODULE";
+		text-transform: uppercase;
+		font-size: 12px;
+		font-weight: 400;
+		display: block;
+	}
+	.lazyblock .block-editor-inner-blocks {
+		background: white;
+		border: solid #dfdfdf 1px;
+	}
+	.lazyblock .lzb-content-title .lzb-content-edit-link {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+
+
+
+/* SECTION Plugin ACF */
+/* @GROUP ACF Custom Fields : bottom */
+	#editor .postbox-container{
+		width: 90%;
+		max-width: 950px;
+		margin: 0 auto;
+		padding: 25px 0 35px !important;
+		float: none;
+	}
+	#editor .acf-postbox{
+		background-color: #ddd;
+		margin-bottom: 10px;
+		border: 4px solid white;
+	}
+	#editor .acf-postbox .postbox-header{
+		color: #fff;
+		background-color: #004be3;
+	}
+	#editor .acf-postbox.postbox  > .postbox-header:hover {
+		background-color: #3f7eff;
+	}
+
+/* @GROUP ACF Custom Fields : side */
+	.edit-post-meta-boxes-area.is-side .postbox {
+		border-bottom: 1px solid #e0e0e0;
+		background-color: #d7dde3;
+	}
+	#editor .edit-post-meta-boxes-area.is-side .postbox-container {
+		width: 100%;
+		padding: 0 !important;
+	}
+	.edit-post-meta-boxes-area.is-side #poststuff h2.hndle{
+		font-weight: 500;
+		color: #fff;
+	}
+	.block-editor .edit-post-sidebar .acf-postbox > .postbox-header{
+		background-color: #1c3a77;
+	}
+	.edit-post-meta-boxes-area.is-side .inside.acf-fields{
+		width: 95%;
+	}
+/* @GROUP ACF-Gutenberg Layout Blocks */
+	.acf-block-body .acf-field .acf-label {
+		margin: 0;
+	}
+	.acf-block-component .acf-block-fields{
+		background-color: transparent;
+		border: solid 6px #cde2ec;
+	}
+	.wp-block[data-title*="Module"] .acf-field-message.lzb-content-title{
+		background: var(--stripey);
+		margin-bottom: 0;
+	}
+	.acf-smart-module{
+		background: var(--stripey);
+		text-align: center;
+	}
+	.acf-smart-module ul{
+		text-align: left;
+	}
+	.acf-smart-module .acf-input {
+		width: 300px;
+		margin: 0 auto;
+	}
+	.acf-smart-module .acf-label{
+		text-transform: uppercase;
+		font-size: 20px;
+		font-weight: 500;
+		color: #9ec5d8;
+		padding: 20px 0;
+		text-shadow: 1px 0 0 rgba(255,255,255,0.8);
+	}
+	.acf-smart-module .acf-label:after{
+		content: "SMART MODULE";
+		text-transform: uppercase;
+		font-size: 12px;
+		font-weight: 400;
+		display: block;
+	}
+/* !SECTION */
+
+/* @GROUP Buttons UI */
+	.wp-block-button__link {
+		background-color: var(--gray80);
+		border: 1px solid var(--gray80);
+		text-transform: uppercase;
+		font-size: 14px;
+		font-weight: 600;
+		display: inline-block;
+		line-height: 1;
+		padding: 16px 14px;
+		color: #fff;
+		margin-bottom: 5px;
+		cursor: pointer;
+		border-radius: 0;
+		transition: all 0.4s ease;
+	}
+
+	.wp-block-button__link:hover {
+		background-color: var(--brand1);
+		border: 1px solid var(--brand1);
+		color: white;
+	}
+
+/* @GROUP Metaboxes */
+	#editor .edit-post-layout__metaboxes {
+		background-color: #c1c1c1;
+		box-shadow: inset 0 0 20px 0 rgba(0,0,0,0.4);
+	}
