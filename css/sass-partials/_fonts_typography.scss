@@ -1,0 +1,173 @@
+/* ==================================== */
+/* @GROUP Fonts */
+/* ==================================== */
+/* SEE https://google-webfonts-helper.herokuapp.com/fonts */
+	/* montserrat-200 - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 200;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-200.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	/* montserrat-200italic - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: italic;
+		font-weight: 200;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-200italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-200italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	/* montserrat-regular - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 400;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	/* montserrat-italic - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: italic;
+		font-weight: 400;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	/* montserrat-700 - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 700;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	/* montserrat-700italic - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: italic;
+		font-weight: 700;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	/* montserrat-900 - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 900;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+	/* montserrat-900italic - latin */
+	@font-face {
+		font-family: 'Montserrat';
+		font-style: italic;
+		font-weight: 900;
+		src: local(''),
+			url('fonts/montserrat/montserrat-v18-latin-900italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+			url('fonts/montserrat/montserrat-v18-latin-900italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	}
+
+
+
+/* ==================================== */
+/* @GROUP Typography */
+/* ==================================== */
+	html, body {
+		-webkit-font-smoothing: antialiased;
+		-moz-font-smoothing: antialiased;
+		-o-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	body{
+		font-family: 'Montserrat', sans-serif;
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+	h1,h2,h3,h4,h5,h6{
+		margin-top: 0;
+		margin-bottom: 20px;
+		line-height: 1.2;
+		font-weight: 700;
+	}
+	h1{
+		font-size: 50px;
+		font-weight: 900;
+	}
+	h2{
+		font-size: 38px;
+		font-weight: 600;
+	}
+	h3{
+		font-size: 30px;
+	}
+	h4{
+		font-size: 26px;
+	}
+	h5{
+		font-size: 22px;
+	}
+	h6{
+		font-size: 18px;
+	}
+
+
+/* small screens */
+	@media only screen and (max-width: 768px){
+		body{
+			font-size:16px
+		}
+		h1,
+		h1.entry-title{
+			font-size: 28px;
+		}
+		h2{
+			font-size: 24px;
+		}
+		h3{
+			font-size: 20px;
+		}
+		h4{
+			font-size: 18px;
+		}
+		h5{
+			font-size: 16px;
+		}
+		h6{
+			font-size: 16px;
+		}
+	}
+
+
+	big {
+		font-size: 125%;
+	}
+	small{
+		font-size: 80%;
+	}
+	a {
+		color: var(--brand1);
+		text-decoration: none;
+	}
+	a:hover{
+		color:var(--brand2);
+	}
+	.wp-caption{}
+	.wp-caption-text{}
+	.gallery-caption{}
+	.bypostauthor{}

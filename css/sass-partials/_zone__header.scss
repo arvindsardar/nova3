@@ -1,0 +1,52 @@
+/* ==================================== */
+/* @GROUP Page Top */
+/* ==================================== */
+#above-page-wrapper{
+	padding: 8px 0;
+	background-color: rgba(255,255,255,0.6);
+}
+
+#above-page-wrapper #above-page .nova3-icons{
+	display: grid;
+	grid-template-columns: repeat( auto-fill, minmax(40px, 1fr) );
+}
+
+/* ==================================== */
+/* @GROUP Site Header */
+/* ==================================== */
+#site-header{
+	position: relative;
+	z-index: 100;
+	background: center/cover url("https://egg.qwaszx.net/wp-content/uploads/2021/12/gradient.webp");
+}
+#header-content-wrap{
+	padding: 30px 0;
+}
+/* mobile view */
+@media only screen and (max-width: 768px){
+	#header-content-wrap{
+		padding: 5px 0;
+	}
+}
+#header-content-wrap .wrap-inner{
+	display: flex;
+	align-items: center;
+}
+#header-content-wrap .site-logo{
+	font-size: 0;
+	width: 200px;
+	display: inline-block;
+	transition: all 0.4s ease;
+}
+
+/* --> mobile view */
+@media only screen and (max-width: 768px){
+	#header-content-wrap .site-logo{
+		width: 100px;
+	}
+}
+
+.header-menu-container{
+	margin-left: auto;
+}
+

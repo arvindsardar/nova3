@@ -3,10 +3,10 @@
  * the Snippets Plugin will contain most of this site's functions
  */
 
-/* THEME DEFAULTS AND SUPPORT FOR VARIOUS FEATURES
+/* NOTE THEME DEFAULTS AND SUPPORT FOR VARIOUS FEATURES
 ------------------------------------------------------*/
-	if ( ! function_exists( 'nova_setup' ) ) :
-		function nova_setup() {
+	if ( ! function_exists( 'nova3_setup' ) ) :
+		function nova3_setup() {
 			add_theme_support( 'title-tag' ); //let WP manage the <title> head tag
 			add_theme_support( 'editor-styles' ); //register gutenberg stylesheet
 			add_theme_support( 'align-wide' );
@@ -36,23 +36,23 @@
 			add_theme_support('custom-logo');
 		}
 	endif;
-	add_action( 'after_setup_theme', 'nova_setup' );
+	add_action( 'after_setup_theme', 'nova3_setup' );
 
 
-/* SET CONTENT WIDTH
+/* NOTE SET CONTENT WIDTH
 --------------------------------------------*/
-	add_action( 'after_setup_theme', 'nova_content_width', 0 );
-	function nova_content_width() {
-		$GLOBALS['content_width'] = apply_filters( 'nova_content_width', 1140 );
+	add_action( 'after_setup_theme', 'nova3_content_width', 0 );
+	function nova3_content_width() {
+		$GLOBALS['content_width'] = apply_filters( 'nova3_content_width', 1140 );
 	}
 
 
-/* CUSTOMIZER ADDITIONS
+/* NOTE CUSTOMIZER ADDITIONS
 --------------------------------------------*/
 	require get_template_directory() . '/inc/customizer.php';
 
 
-/* ENQUEUE SCRIPTS & STYLES
+/* NOTE ENQUEUE SCRIPTS & STYLES
 --------------------------------------------*/
 	//for cache busting
 	define( 'MY_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
@@ -61,12 +61,13 @@
 
 		// styles
 		wp_enqueue_style( 'dashicons' );
-		wp_enqueue_style( 'nova-bs4-grid', get_stylesheet_directory_uri()  . '/vendor/bootstrap-grid.min.css' );
-		// wp_enqueue_style( 'nova-forms', get_stylesheet_directory_uri()  . '/css/forms.css', array(), MY_THEME_VERSION );
-		wp_enqueue_style( 'nova-style', get_stylesheet_uri(), array(), MY_THEME_VERSION );
+		wp_enqueue_style( 'nova3-base-style', get_stylesheet_directory_uri()  . '/css/base.css' );
+		wp_enqueue_style( 'nova3-bs4-grid', get_stylesheet_directory_uri()  . '/vendor/bootstrap-grid.min.css' );
+		wp_enqueue_style( 'nova3-style', get_stylesheet_uri(), array(), MY_THEME_VERSION );
+
 
 		// scripts
-		wp_enqueue_script( 'nova_custom_js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
+		wp_enqueue_script( 'nova3_custom_js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
 		// wp_enqueue_script( 'jquery-ui-accordion' );
 		// if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 
@@ -84,21 +85,21 @@
 
 	// Block Editor Stylesheet
 	add_action( 'enqueue_block_editor_assets', function() {
-		wp_enqueue_style( 'nova-editor-style', get_stylesheet_directory_uri() . "/css/block-editor.css", false, '1.0', 'all' );
-		//wp_enqueue_script( 'nova-editor-script', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), get_stylesheet_directory_uri() . '/js/editor.js' , true );
+		wp_enqueue_style( 'nova3-editor-style', get_stylesheet_directory_uri() . "/css/block-editor.css", false, '1.0', 'all' );
+		//wp_enqueue_script( 'nova3-editor-script', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom' ), get_stylesheet_directory_uri() . '/js/editor.js' , true );
 	} );
 
 
 
-/* REGISTER WIDGET AREAS
+/* NOTE REGISTER WIDGET AREAS
 --------------------------------------------*/
-	add_action( 'widgets_init', 'nova_widgets_init' );
-	function nova_widgets_init() {
+	add_action( 'widgets_init', 'nova3_widgets_init' );
+	function nova3_widgets_init() {
 		// MAIN SIDEBAR
 		register_sidebar( array(
-			'name'          => esc_html__( 'Sidebar', 'nova' ),
+			'name'          => esc_html__( 'Sidebar', 'nova3' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'nova' ),
+			'description'   => esc_html__( 'Add widgets here.', 'nova3' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -107,9 +108,9 @@
 
 		// PAGE TOP ZONE
 		register_sidebar( array(
-			'name'          => esc_html__( 'Above Page Zone', 'nova' ),
+			'name'          => esc_html__( 'Above Page Zone', 'nova3' ),
 			'id'            => 'above_page_widgets',
-			'description'   => esc_html__( 'Widgets will appear at the top of the page', 'nova' ),
+			'description'   => esc_html__( 'Widgets will appear at the top of the page', 'nova3' ),
 			'before_widget' => '<section id="%1$s" class="col-md widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -118,9 +119,9 @@
 
 		// ABOVE FOOTER ZONE
 		register_sidebar( array(
-			'name'          => esc_html__( 'Above Footer Zone', 'nova' ),
+			'name'          => esc_html__( 'Above Footer Zone', 'nova3' ),
 			'id'            => 'above_footer_widgets',
-			'description'   => esc_html__( 'Widgets will appear above the footer', 'nova' ),
+			'description'   => esc_html__( 'Widgets will appear above the footer', 'nova3' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -129,9 +130,9 @@
 
 		// FOOTER ONE
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer 1', 'nova' ),
+			'name'          => esc_html__( 'Footer 1', 'nova3' ),
 			'id'            => 'footer1_widgets',
-			'description'   => esc_html__( 'First footer area', 'nova' ),
+			'description'   => esc_html__( 'First footer area', 'nova3' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -140,9 +141,9 @@
 
 		// FOOTER TWO
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer 2', 'nova' ),
+			'name'          => esc_html__( 'Footer 2', 'nova3' ),
 			'id'            => 'footer2_widgets',
-			'description'   => esc_html__( 'Second footer area', 'nova' ),
+			'description'   => esc_html__( 'Second footer area', 'nova3' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -151,9 +152,9 @@
 
 		// FOOTER THREE
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer 3', 'nova' ),
+			'name'          => esc_html__( 'Footer 3', 'nova3' ),
 			'id'            => 'footer3_widgets',
-			'description'   => esc_html__( 'Third footer area', 'nova' ),
+			'description'   => esc_html__( 'Third footer area', 'nova3' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -162,9 +163,9 @@
 
 		// FOOTER FOUR
 		register_sidebar( array(
-			'name'          => esc_html__( 'Footer 4', 'nova' ),
+			'name'          => esc_html__( 'Footer 4', 'nova3' ),
 			'id'            => 'footer4_widgets',
-			'description'   => esc_html__( 'Fourth footer area', 'nova' ),
+			'description'   => esc_html__( 'Fourth footer area', 'nova3' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -172,12 +173,12 @@
 		) );
 	}
 
-/* ADDITIONAL BODY CLASSES
+/* NOTE ADDITIONAL BODY CLASSES
 --------------------------------------------*/
-add_filter( 'body_class', 'nova_body_classes' );
-function nova_body_classes( $classes ) {
+add_filter( 'body_class', 'nova3_body_classes' );
+function nova3_body_classes( $classes ) {
 	//add theme class
-	$classes[] = 'nova';
+	$classes[] = 'nova3';
 
 	//add page slug class
 	global $post;
@@ -187,58 +188,24 @@ function nova_body_classes( $classes ) {
 
 	//for blog page
 	if ( is_home() || is_archive() ) {
-		$classes[] = 'nova-archive';
+		$classes[] = 'nova3-archive';
 	}
 
 	//Adds a class of no-sidebar when there is no sidebar present.
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'nova-no-sidebar';
+		$classes[] = 'nova3-no-sidebar';
 	}
 
 	//Adds a class of not-front if it's an internal page
 	if ( ! is_front_page() ) {
-		$classes[] = 'nova-not-front';
+		$classes[] = 'nova3-not-front';
 	}
 
 	return $classes;
 }
 
 
-/* Redirect /mockup to theme path
---------------------------------------------*/
-	add_action('template_redirect', 'rudr_url_redirects');
-	function rudr_url_redirects() {
-		$TEMPLATE_PATH = get_template_directory_uri();
-		$TEMPLATE_PATH = parse_url($TEMPLATE_PATH, PHP_URL_PATH);
-		$newurl = $TEMPLATE_PATH . '/mockup/';
-		/* in this array: old URLs=>new URLs  */
-		$redirect_rules = array(
-			array('old'=>'/mockup/','new'=>$newurl)
-		);
-		foreach( $redirect_rules as $rule ) :
-			// if URL of request matches with the one from the array, then redirect
-			if( urldecode($_SERVER['REQUEST_URI']) == $rule['old'] ) :
-				wp_redirect( site_url( $rule['new'] ), 301 );
-				exit();
-			endif;
-		endforeach;
-	}
-
-
-/* NUMBER PAGINATION FUNCTION
---------------------------------------------*/
-function nova_pagination() {
-	global $wp_query;
-	$big = 9999999; // need an unlikely integer
-	  echo paginate_links( array(
-	   'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-	   'format' => '?paged=%#%',
-	   'current' => max( 1, get_query_var('paged') ),
-	   'total' => $wp_query->max_num_pages) );
-}
-
-
-/* PERFORMANCE: ASYNC SCRIPTS
+/* NOTE PERFORMANCE: ASYNC SCRIPTS
 --------------------------------------------*/
 	function defer_parsing_of_js( $url ) {
 		if ( is_user_logged_in() ) return $url; //don't break WP Admin
@@ -247,7 +214,7 @@ function nova_pagination() {
 		return str_replace( ' src', ' defer src', $url );
 	}
 	// add_filter( 'script_loader_tag', 'defer_parsing_of_js', 10 );
-	/* *
+	/* NOTE *
 	 * this is a good thing to defer the script but jquery needs to be excluded
 	 * */
 

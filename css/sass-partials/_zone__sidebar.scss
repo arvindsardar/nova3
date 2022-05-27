@@ -1,0 +1,21 @@
+
+/* ==================================== */
+/* @GROUP Sidebar Area */
+/* ==================================== */
+#secondary{
+	font-size: 14px;
+	width: 320px;
+}
+
+/* --> mobile view */
+@media only screen and (max-width: 768px){
+	#secondary{
+		width: 100%;
+	}
+}
+
+#secondary h2{
+	text-transform: uppercase;
+	font-size: 16px;
+	margin-bottom: 10px;
+}

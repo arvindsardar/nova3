@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package nova
+ * @package nova3
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

@@ -230,7 +230,7 @@
 	}
 
 /* lazyblocks custom block "cards" */
-	.wp-block-lazyblock-nova-cards .lzb-gutenberg-repeater-items {
+	.wp-block-lazyblock-nova3-cards .lzb-gutenberg-repeater-items {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
 		grid-gap: 15px;

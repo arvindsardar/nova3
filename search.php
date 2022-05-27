@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package nova
+ * @package nova3
  */
 
 get_header();
@@ -19,7 +19,7 @@ get_header();
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'nova' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'nova3' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
@@ -38,21 +38,21 @@ get_header();
 						<?php if ( 'post' === get_post_type() ) : ?>
 						<small class="entry-meta">
 							<?php
-							nova_posted_on();
-							nova_posted_by();
+							nova3_posted_on();
+							nova3_posted_by();
 							?>
 						</small><!-- .entry-meta -->
 						<?php endif; ?>
 					</header><!-- .entry-header -->
 
-					<?php nova_post_thumbnail(); ?>
+					<?php nova3_post_thumbnail(); ?>
 
 					<div class="entry-summary">
 						<?php the_excerpt(); ?>
 					</div><!-- .entry-summary -->
 
 					<footer class="entry-footer">
-						<small><?php nova_entry_footer(); ?></small>
+						<small><?php nova3_entry_footer(); ?></small>
 					</footer><!-- .entry-footer -->
 				</article><!-- #post-<?php the_ID(); ?> -->
 				<hr>
@@ -65,11 +65,11 @@ get_header();
 
 			<section class="no-results not-found">
 				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'nova' ); ?></h1>
+					<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'nova3' ); ?></h1>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-						<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'nova' ); ?></p>
+						<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'nova3' ); ?></p>
 						<?php get_search_form(); ?>
 				</div><!-- .page-content -->
 			</section><!-- .no-results -->

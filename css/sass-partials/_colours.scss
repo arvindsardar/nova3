@@ -1,0 +1,35 @@
+/* ==================================== */
+/* @GROUP Colours */
+/* ==================================== */
+:root {
+	--brand1: #121D56;  /* colour1 */
+	--brand2: #9BC1DA;  /* colour2 */
+	--brand3: #94D9F5;  /* colour3 */
+
+	--gray5:  #f0f4f5;
+	--gray10: #e8e8e8;
+	--gray20: #cac5c6;
+	--gray30: #afaaab;
+	--gray40: #948f91;
+	--gray50: #7a7677;
+	--gray60: #5e5e5e;
+	--gray70: #474747;
+	--gray80: #303030;
+	--gray90: #1b1b1b;
+
+	--light: var(--gray10);
+	--mid: var(--gray50);
+	--dark: var(--gray80);
+}
+.bg-brand1 {background-color: var(--brand1);}
+.bg-brand2 {background-color: var(--brand2);}
+.bg-brand3 {background-color: var(--brand3);}
+.bg-dark {background-color: var(--dark);}
+.bg-mid {background-color: var(--mid);}
+.bg-light {background-color: var(--light);}
+.txt-brand1 {color: var(--brand1);}
+.txt-brand2 {color: var(--brand2);}
+.txt-brand3 {color: var(--brand3);}
+.txt-dark {color: var(--dark);}
+.txt-mid {color: var(--mid);}
+.txt-light {color: var(--light);}

@@ -1,13 +1,14 @@
 <?php
 /**
  * The header for our theme
- * @package nova
+ * @package nova3
  */
 
 	//Theme Settings Page
 	$sitename = get_bloginfo( 'name' );
 	$sitelogo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-	$altlogo = get_theme_mod( 'nova_mobile_logo', '' );
+	$altlogo = get_theme_mod( 'nova3_mobile_logo', '' );
+	$fallbacklogo = get_stylesheet_directory_uri() . '/images/fallback-logo.png';
 
 ?>
 
@@ -22,7 +23,7 @@
 
 
 <body <?php body_class(); ?>>
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'nova' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'nova3' ); ?></a>
 
 	<header id="zone__header">
 		<!-- ------------ offscreen search ------------ -->
@@ -70,7 +71,7 @@
 	<!-- ------------ above header v2 ------------ -->
 			<div id="above-page-wrapper">
 				<div id="above-page" class="sitewidth">
-					<div class="nova-icons">
+					<div class="nova3-icons">
 						<a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a>
 						<a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
 						<a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -87,9 +88,14 @@
 				<div class="wrap-inner sitewidth">
 
 					<!-- ------------ logo ------------ -->
-					<a href="/" class="site-logo">
-						<img src="<?php echo esc_url( $sitelogo[0] ); ?>">
-					</a>
+					<?php if($sitelogo){ ?>
+						<a href="/" class="site-logo">
+							<img src="<?php echo esc_url( $sitelogo[0] ); ?>">
+						</a><?php
+					} else { ?>
+						<img style="width:80px" src="<?php echo $fallbacklogo; ?>"><?php
+					}
+					?>
 
 					<!-- ------------ navigation ------------ -->
 					<?php wp_nav_menu(array(
@@ -102,7 +108,7 @@
 
 					<!-- ------------ search toggle ------------ -->
 					<div class="search-toggle">
-						<a class="nova-searchtoggle-button">
+						<a class="nova3-searchtoggle-button">
 							<i class="fas fa-search"></i>
 						</a>
 					</div>
@@ -119,7 +125,7 @@
 
 				</div>
 
-		<?php do_action('nova_below_nav'); ?>
+		<?php do_action('nova3_below_nav'); ?>
 
 	</header>
 

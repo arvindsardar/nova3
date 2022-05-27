@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package nova
+ * @package nova3
  */
 
 ?>
@@ -41,7 +41,7 @@
 				<?php } ?>
 				<div id="site-info" class="col-12">
 					<small>
-					&copy; <?php echo date("Y") . ' ' . get_bloginfo();?>  | <a target="_blank" href="https://thecreativecollective.com.au">Website Design &amp; Development</a> by <a target="_blank" href="https://thecreativecollective.com.au">The Creative Collective</a>
+					&copy; <?php echo date("Y") . ' ' . get_bloginfo();?>  | <a target="_blank" href="https://github.com/arvindsardar/">arvindsardar</a>
 					</small>
 				</div><!-- .site-info -->
 			</div><!-- #site-footer-wrap.row -->

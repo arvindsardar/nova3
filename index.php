@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package nova
+ * @package nova3
  */
 
 get_header();
@@ -40,12 +40,12 @@ get_header();
 				<?php endwhile; ?>
 
 				<div class="col-12">
-					<div class="pagination"><?php nova_pagination(); ?></div>
+					<?php the_posts_pagination(); ?>
 				</div>
 
 			<?php else : ?>
 
-				<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'nova' ); ?></p>
+				<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'nova3' ); ?></p>
 
 				<?php get_search_form();
 			endif;

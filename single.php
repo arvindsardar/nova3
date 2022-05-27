@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package nova
+ * @package nova3
  */
 
 get_header();
@@ -53,7 +53,7 @@ get_header();
 					the_content();
 
 					wp_link_pages( array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nova' ),
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'nova3' ),
 						'after'  => '</div>',
 					) );
 					?>

@@ -18,7 +18,7 @@
 		});
 
 	//search button toggle
-		$('.nova-searchtoggle-button').click(function(){
+		$('.nova3-searchtoggle-button').click(function(){
 			$('#sitesearch-wrapper').slideToggle();
 			$('.searchinput').focus();
 		});

@@ -1,0 +1,133 @@
+/* ==================================== */
+/* @GROUP Sticky Nav */
+/* ==================================== */
+@keyframes fixedMenuSlide {
+	0%		{transform: translateY(-100px);}
+	100%	{transform: translateY(0px)}
+}
+#fixed-header{
+	display: none;
+}
+body.scrolled #fixed-header{
+	display: block;
+	position: fixed;
+	width: 100vw;
+	top: 0;
+	z-index: 9999;
+	background-color: white;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+
+	animation-name: fixedMenuSlide;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+}
+body.scrolled #fixed-header .site-logo-small{
+	width: 40px;
+	padding: 10px;
+}
+body.scrolled.admin-bar #fixed-header{
+	top: 30px;
+}
+/* small screens */
+@media only screen and (max-width: 768px){
+	body.scrolled #fixed-header{
+		display: none !important;
+	}
+}
+
+/* ==================================== */
+/* @GROUP Navigation */
+/* ==================================== */
+/* -> HORIZONTAL MENU */
+ul.horizontal-menu{
+	display: flex;
+	margin: 0;
+	padding-left: 0;
+}
+ul.horizontal-menu > li{
+	list-style: none;
+	margin-right: 15px;
+}
+ul.horizontal-menu a{
+	display: inline-block;
+}
+
+/* -> DROPDOWN SUBMENUS */
+.dropdown-menu li.menu-item-has-children{
+	position: relative;
+}
+.dropdown-menu ul.sub-menu{
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 999;
+	text-align: left;
+	padding:0;
+}
+.dropdown-menu > li.menu-item-has-children:hover > ul.sub-menu{
+	left: auto;
+}
+.dropdown-menu ul.sub-menu a {
+	width: 250px;
+	padding: 12px;
+}
+
+/* -> HEADER MENU */
+.header-menu {
+	display: flex;
+	margin: 0;
+	padding-left: 0;
+}
+
+.header-menu li{
+	list-style: none;
+}
+.header-menu a{
+	display: inline-block;
+}
+
+/* LEVEL 1 */
+.header-menu > li{
+	position: relative;
+}
+.header-menu > li > a{
+	padding: 12px;
+	color: var(--gray80);
+}
+.header-menu > li:hover > a{
+	background-color: var(--gray90);
+	color:white;
+}
+.header-menu > li .dashicons{
+	padding-left: 8px;
+	font-size: 16px;
+	vertical-align: bottom;
+}
+.header-menu .showmore{
+	display: none;
+}
+
+/* LEVEL 2 */
+.header-menu ul.sub-menu{
+	background-color: var(--brand1);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 999;
+	text-align: left;
+	padding:0;
+}
+.header-menu > li.menu-item-has-children:hover > ul.sub-menu{
+	left: auto;
+}
+.header-menu ul.sub-menu a {
+	width: 250px;
+	padding: 12px;
+	background-color: var(--brand1);
+	color: white;
+}
+.header-menu ul.sub-menu a:hover{
+	background-color: rgba(0, 0, 0, 0.2);
+}

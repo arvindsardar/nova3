@@ -1,0 +1,77 @@
+/* ==================================== */
+/* @GROUP Layouts: Base */
+/* ==================================== */
+	.sitewidth{
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 0 15px;
+	}
+	:root {
+		--sitewidth: 1140px;
+		--sitewidthpadding: 0 15px;
+	}
+
+	/* ==================================== */
+/* @GROUP Layouts: Flexbox */
+/* ==================================== */
+.flexi-parent * {
+	box-sizing: border-box;
+}
+.flexi-parent {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -15px;
+}
+.flexi-columns {
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+.flexi-center {
+	justify-content: center; /*main-axis centered*/
+}
+.flexi-middle {
+	align-items: center; /*secondary-axis centered*/
+}
+.flexi-spaced {
+	justify-content: space-between;
+}
+.flexi-child {
+	padding-left: 15px;
+	padding-right: 15px;
+	margin-bottom: 30px;
+	width: 100%;
+}
+.flexi-parent.one-per-row .flexi-child {
+	max-width: 100%;
+}
+.flexi-parent.two-per-row .flexi-child {
+	max-width: 50%;
+}
+.flexi-parent.three-per-row .flexi-child {
+	max-width: 33.33%;
+}
+.flexi-parent.four-per-row .flexi-child {
+	max-width: 25%;
+}
+.flexi-parent.five-per-row .flexi-child {
+	max-width: 20%;
+}
+.flexi-parent.six-per-row .flexi-child {
+	max-width: 16.66%;
+}
+.flexi-child .inner {
+	height: 200px;
+}
+
+/*  Small screens */
+@media only screen and (max-width: 768px) {
+	.flexi-parent.one-per-row .flexi-child,
+	.flexi-parent.two-per-row .flexi-child,
+	.flexi-parent.three-per-row .flexi-child,
+	.flexi-parent.four-per-row .flexi-child,
+	.flexi-parent.five-per-row .flexi-child,
+	.flexi-parent.six-per-row .flexi-child,
+	.flexi-child {
+		max-width: 50%;
+	}
+}

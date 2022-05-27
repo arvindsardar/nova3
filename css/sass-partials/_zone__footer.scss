@@ -1,0 +1,46 @@
+/* ==================================== */
+/* @GROUP [ZONE] #zone__footer */
+/* ==================================== */
+#above-footer-wrap{
+	background-color: var(--brand1);
+	padding: 80px 0;
+	color: white;
+}
+#site-footer-wrap{
+	font-size: 14px;
+	padding: 40px 0;
+}
+#site-footer-wrap h2{
+	font-size: 16px;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+	margin-top: 0;
+}
+#site-footer-wrap ul{
+	list-style: none;
+	padding-left: 0;
+}
+#site-footer-wrap ul ul{
+	padding-left: 15px;
+}
+#site-footer-wrap #site-info{
+	padding: 15px;
+	margin-top: 30px;
+	border-top: 1px solid var(--gray20);
+}
+#site-footer-wrap #footer-1,
+#site-footer-wrap #footer-2,
+#site-footer-wrap #footer-3{
+	border-right: 1px solid var(--gray20);
+	margin-right: 15px;
+}
+a#back-to-top{
+	display: block;
+	position: fixed;
+	bottom: 18px;
+	right: 18px;
+	background-color: black;
+	outline: 1px solid white;
+	color: white;
+	padding:6px 12px;
+}
